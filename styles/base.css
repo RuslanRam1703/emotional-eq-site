@@ -17,12 +17,83 @@ body {
 
 body {
   background-color: var(--color-bg);
-  background-image: radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.06), transparent 60%);
-  background-repeat: no-repeat;
   color: var(--color-text-primary);
   font-family: var(--font-family-base);
   font-size: var(--font-size-body);
   line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Global animated ambient background (liquid-glass system).
+   Two large, heavily-blurred color blobs drift slowly and independently
+   behind everything on every screen. They reuse the same emotion accent
+   tokens the cards/posters/waveform already use, so the ambient layer and
+   the glass cards read as one system rather than two competing effects —
+   existing backdrop-filter blur on cards samples this layer automatically,
+   producing the frosted "light behind glass" look with zero card changes.
+   Fixed positioning + transform-only animation keeps this compositor-only
+   (no layout/paint cost per frame), and MAX 2 layers per the design brief. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+  will-change: transform;
+}
+
+body::before {
+  top: -20%;
+  left: -10%;
+  width: 60vmax;
+  height: 60vmax;
+  background: radial-gradient(circle, var(--color-emotion-calm) 0%, var(--color-emotion-focused) 45%, transparent 70%);
+  animation: bg-drift-a 48s ease-in-out infinite;
+}
+
+body::after {
+  bottom: -25%;
+  right: -15%;
+  width: 55vmax;
+  height: 55vmax;
+  background: radial-gradient(circle, var(--color-emotion-romantic) 0%, var(--color-emotion-energy) 45%, transparent 70%);
+  animation: bg-drift-b 62s ease-in-out infinite;
+}
+
+@keyframes bg-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(8vw, 6vh) scale(1.08);
+  }
+  66% {
+    transform: translate(-4vw, 10vh) scale(0.96);
+  }
+}
+
+@keyframes bg-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-6vw, -8vh) scale(1.06);
+  }
+  66% {
+    transform: translate(5vw, -4vh) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
 }
 
 #app {
