@@ -335,6 +335,54 @@ function capitalize(word) {
   return word ? word.charAt(0).toUpperCase() + word.slice(1) : word;
 }
 
+// Results screen navigation controls. These are explicit jumps, not stack
+// pops: whichever path got the user to Results (the Presets fast path never
+// visits "eq" at all), all three targets must always be reachable, so each
+// handler writes a fresh, canonical history prefix instead of trying to
+// locate/trim the existing stack. None of them touch recommendation logic
+// (getRankedMovies/getMovieScore) or regenerate anything — that only ever
+// happens from the explicit "apply/customize/show-results" actions.
+function initResults() {
+  const homeBtn = document.querySelector('[data-action="back-to-home"]');
+  const eqBtn = document.querySelector('[data-action="back-to-eq"]');
+  const presetsBtn = document.querySelector('[data-action="back-to-presets"]');
+
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      // Full reset of the recommendation flow, per spec: clears the
+      // preset choice, EQ values, and selected movie, and drops the
+      // history stack back to a single "landing" entry.
+      setState({
+        currentScreen: "landing",
+        screenHistory: ["landing"],
+        selectedEmotion: "",
+        eqValues: { ...EQ_DEFAULTS },
+        selectedMovie: null,
+      });
+    });
+  }
+
+  if (eqBtn) {
+    eqBtn.addEventListener("click", () => {
+      // eqValues is untouched — preserved exactly as the user left it.
+      setState({
+        currentScreen: "eq",
+        screenHistory: ["landing", "onboarding", "presets", "eq"],
+      });
+    });
+  }
+
+  if (presetsBtn) {
+    presetsBtn.addEventListener("click", () => {
+      // selectedEmotion is untouched — the current preset stays active.
+      setState({
+        currentScreen: "presets",
+        screenHistory: ["landing", "onboarding", "presets"],
+      });
+    });
+  }
+}
+
 function renderResults(state) {
   if (state.currentScreen !== "results") return;
 
@@ -513,6 +561,7 @@ function init() {
   initLanding();
   initPresets();
   initEq();
+  initResults();
   initMovieDetail();
 }
 

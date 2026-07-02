@@ -12,7 +12,10 @@
       "Bash(rmdir src/assets/fonts src/assets/icons src/assets/images src/assets src/data src/scripts src/styles src)",
       "WebSearch",
       "Bash(rm -f \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/launch.json\" \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/preview-server.ps1\" && ls -la \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/\")",
-      "Bash(rm -f \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/launch.json\"; ls \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/\")"
+      "Bash(rm -f \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/launch.json\"; ls \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/\")",
+      "Bash(npx --version)",
+      "Bash(py --version)",
+      "Bash(grep -n \"^\\\\.landing\\\\|^\\\\/\\\\* Landing\" \"/c/Users/Руслан/Desktop/Emotional-EQ-site/styles/components.css\")"
     ]
   }
 }

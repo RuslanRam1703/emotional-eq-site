@@ -1,0 +1,27 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-server-python",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5173"],
+      "port": 5173
+    },
+    {
+      "name": "static-server-node",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "-p", "5173"],
+      "port": 5173
+    },
+    {
+      "name": "static-server-fallback",
+      "runtimeExecutable": "powershell.exe",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "C:\\Users\\Руслан\\Desktop\\Emotional-EQ-site\\.claude\\fallback-server.ps1"
+      ],
+      "port": 5173
+    }
+  ]
+}

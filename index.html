@@ -14,42 +14,60 @@
 
     <section class="screen active" data-screen="landing">
       <div class="landing">
-        <div class="landing__waveform" aria-hidden="true">
-          <span style="height: 22%"></span>
-          <span style="height: 38%"></span>
-          <span style="height: 58%"></span>
-          <span style="height: 42%"></span>
-          <span style="height: 68%"></span>
-          <span style="height: 84%"></span>
-          <span style="height: 62%"></span>
-          <span style="height: 46%"></span>
-          <span style="height: 72%"></span>
-          <span style="height: 92%"></span>
-          <span style="height: 78%"></span>
-          <span style="height: 52%"></span>
-          <span style="height: 36%"></span>
-          <span style="height: 58%"></span>
-          <span style="height: 88%"></span>
-          <span style="height: 68%"></span>
-          <span style="height: 42%"></span>
-          <span style="height: 62%"></span>
-          <span style="height: 78%"></span>
-          <span style="height: 52%"></span>
-          <span style="height: 32%"></span>
-          <span style="height: 48%"></span>
-          <span style="height: 66%"></span>
-          <span style="height: 26%"></span>
-        </div>
+        <div class="landing__grid">
+          <div class="landing__content">
+            <span class="landing__eyebrow">Emotional EQ</span>
+            <h1 class="landing__headline">Кино, которое чувствует твоё настроение</h1>
+            <p class="landing__subline">
+              Интерактивная система, которая подбирает фильмы по твоему состоянию &mdash; без жанров и долгих поисков по каталогу.
+            </p>
+            <div class="landing__actions">
+              <button type="button" class="btn-primary" data-action="next-screen">Войти в опыт</button>
+              <button type="button" class="btn-secondary" data-action="explore-presets">Исследовать пресеты</button>
+            </div>
+          </div>
 
-        <div class="landing__content">
-          <span class="landing__eyebrow">Emotional EQ</span>
-          <h1 class="landing__headline">Кино, которое чувствует твоё настроение</h1>
-          <p class="landing__subline">
-            Интерактивная система, которая подбирает фильмы по твоему состоянию &mdash; без жанров и долгих поисков по каталогу.
-          </p>
-          <div class="landing__actions">
-            <button type="button" class="btn-primary" data-action="next-screen">Войти в опыт</button>
-            <button type="button" class="btn-secondary" data-action="explore-presets">Исследовать пресеты</button>
+          <div class="landing__eq-widget spatial-container" aria-hidden="true">
+            <div class="landing__eq-sliders">
+              <div class="landing__eq-slider">
+                <span class="landing__eq-slider-track" style="--fill: 62%; --accent: var(--color-emotion-calm);">
+                  <span class="landing__eq-slider-thumb"></span>
+                </span>
+                <span class="landing__eq-slider-label">Calm</span>
+              </div>
+              <div class="landing__eq-slider">
+                <span class="landing__eq-slider-track" style="--fill: 44%; --accent: var(--color-emotion-energy);">
+                  <span class="landing__eq-slider-thumb"></span>
+                </span>
+                <span class="landing__eq-slider-label">Energy</span>
+              </div>
+              <div class="landing__eq-slider">
+                <span class="landing__eq-slider-track" style="--fill: 80%; --accent: var(--color-emotion-romantic);">
+                  <span class="landing__eq-slider-thumb"></span>
+                </span>
+                <span class="landing__eq-slider-label">Romance</span>
+              </div>
+              <div class="landing__eq-slider">
+                <span class="landing__eq-slider-track" style="--fill: 34%; --accent: var(--color-emotion-anxiety);">
+                  <span class="landing__eq-slider-thumb"></span>
+                </span>
+                <span class="landing__eq-slider-label">Tension</span>
+              </div>
+              <div class="landing__eq-slider">
+                <span class="landing__eq-slider-track" style="--fill: 58%; --accent: var(--color-emotion-focused);">
+                  <span class="landing__eq-slider-thumb"></span>
+                </span>
+                <span class="landing__eq-slider-label">Focus</span>
+              </div>
+            </div>
+
+            <div class="landing__eq-widget-footer">
+              <span class="landing__eq-widget-mode">Твой эмоциональный профиль</span>
+              <div class="landing__eq-widget-toggle">
+                <span class="landing__eq-widget-toggle-option is-active">Пресеты</span>
+                <span class="landing__eq-widget-toggle-option">EQ</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -83,7 +101,9 @@
           </div>
         </div>
 
-        <button type="button" class="btn-continue" data-action="next-screen">Начать</button>
+        <div class="onboarding__actions">
+          <button type="button" class="btn-primary" data-action="next-screen">Начать</button>
+        </div>
       </div>
     </section>
 
@@ -103,8 +123,8 @@
         <button type="button" class="emotion-card" data-emotion="happy">Happy</button>
       </div>
       <div class="presets-actions">
-        <button type="button" class="btn-continue" data-action="apply-preset" disabled>Применить пресет</button>
-        <button type="button" class="btn-continue" data-action="customize-eq" disabled>Настроить точнее</button>
+        <button type="button" class="btn-primary" data-action="apply-preset" disabled>Применить пресет</button>
+        <button type="button" class="btn-secondary" data-action="customize-eq" disabled>Настроить точнее</button>
       </div>
     </section>
 
@@ -114,6 +134,7 @@
         <p class="subtitle">Двигай ползунки, чтобы точнее передать своё текущее состояние</p>
       </div>
 
+      <div class="eq-panel spatial-container">
       <div class="eq-controls">
         <div class="eq-slider" data-emotion="calm">
           <div class="eq-slider__head">
@@ -175,14 +196,22 @@
         <span class="eq-summary__label">Доминирующее состояние</span>
         <span class="eq-summary__value" data-eq-summary>Neutral</span>
       </div>
+      </div>
 
-      <button type="button" class="btn-continue" data-action="show-results" disabled>Показать результат</button>
+      <div class="eq-actions">
+        <button type="button" class="btn-primary" data-action="show-results" disabled>Показать результат</button>
+      </div>
     </section>
 
     <section class="screen" data-screen="results">
       <div class="results-header">
         <h1>Подборка для твоего состояния</h1>
         <p class="subtitle" data-results-subtitle>&mdash;</p>
+      </div>
+      <div class="results-nav">
+        <button type="button" class="btn-secondary" data-action="back-to-home">На главную</button>
+        <button type="button" class="btn-secondary" data-action="back-to-eq">Изменить EQ</button>
+        <button type="button" class="btn-secondary" data-action="back-to-presets">Сменить пресет</button>
       </div>
       <div class="results-grid" data-results-grid></div>
     </section>
