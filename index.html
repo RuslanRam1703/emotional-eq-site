@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emotional EQ</title>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+</head>
+<body>
+  <main id="app">
+
+    <section class="screen active" data-screen="landing">
+      <div class="landing">
+        <div class="landing__waveform" aria-hidden="true">
+          <span style="height: 22%"></span>
+          <span style="height: 38%"></span>
+          <span style="height: 58%"></span>
+          <span style="height: 42%"></span>
+          <span style="height: 68%"></span>
+          <span style="height: 84%"></span>
+          <span style="height: 62%"></span>
+          <span style="height: 46%"></span>
+          <span style="height: 72%"></span>
+          <span style="height: 92%"></span>
+          <span style="height: 78%"></span>
+          <span style="height: 52%"></span>
+          <span style="height: 36%"></span>
+          <span style="height: 58%"></span>
+          <span style="height: 88%"></span>
+          <span style="height: 68%"></span>
+          <span style="height: 42%"></span>
+          <span style="height: 62%"></span>
+          <span style="height: 78%"></span>
+          <span style="height: 52%"></span>
+          <span style="height: 32%"></span>
+          <span style="height: 48%"></span>
+          <span style="height: 66%"></span>
+          <span style="height: 26%"></span>
+        </div>
+
+        <div class="landing__content">
+          <span class="landing__eyebrow">Emotional EQ</span>
+          <h1 class="landing__headline">Кино, которое чувствует твоё настроение</h1>
+          <p class="landing__subline">
+            Интерактивная система, которая подбирает фильмы по твоему состоянию &mdash; без жанров и долгих поисков по каталогу.
+          </p>
+          <div class="landing__actions">
+            <button type="button" class="btn-primary" data-action="next-screen">Войти в опыт</button>
+            <button type="button" class="btn-secondary" data-action="explore-presets">Исследовать пресеты</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="onboarding">
+      <div class="onboarding">
+        <div class="onboarding__intro">
+          <span class="onboarding__eyebrow">Emotional EQ</span>
+          <h1 class="onboarding__headline">Какое у тебя сегодня настроение?</h1>
+          <p class="onboarding__subtitle">
+            Мы подбираем фильмы не по жанрам, а по твоему настроению &mdash; быстрее и естественнее, чем поиск по каталогу.
+          </p>
+        </div>
+
+        <div class="onboarding__values">
+          <div class="onboarding__value">
+            <span class="onboarding__value-index">01</span>
+            <h2 class="onboarding__value-title">Выбор эмоции</h2>
+            <p class="onboarding__value-text">Восемь готовых пресетов передают твоё состояние одним касанием &mdash; быстро и без раздумий.</p>
+          </div>
+          <div class="onboarding__value">
+            <span class="onboarding__value-index">02</span>
+            <h2 class="onboarding__value-title">Emotional EQ</h2>
+            <p class="onboarding__value-text">Хочешь точнее? Настрой пять параметров &mdash; спокойствие, энергию, романтику, напряжение и фокус.</p>
+          </div>
+          <div class="onboarding__value">
+            <span class="onboarding__value-index">03</span>
+            <h2 class="onboarding__value-title">Персональная подборка</h2>
+            <p class="onboarding__value-text">Система переводит твоё состояние в подборку фильмов и объясняет, почему каждый подходит именно сейчас.</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn-continue" data-action="next-screen">Начать</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="presets">
+      <div class="presets-header">
+        <h1>Какой ты сегодня?</h1>
+        <p class="subtitle">Выбери настроение для подбора фильмов</p>
+      </div>
+      <div class="emotion-grid">
+        <button type="button" class="emotion-card" data-emotion="calm">Calm</button>
+        <button type="button" class="emotion-card" data-emotion="energetic">Energetic</button>
+        <button type="button" class="emotion-card" data-emotion="romantic">Romantic</button>
+        <button type="button" class="emotion-card" data-emotion="sad">Sad</button>
+        <button type="button" class="emotion-card" data-emotion="focused">Focused</button>
+        <button type="button" class="emotion-card" data-emotion="nostalgic">Nostalgic</button>
+        <button type="button" class="emotion-card" data-emotion="tense">Tense</button>
+        <button type="button" class="emotion-card" data-emotion="happy">Happy</button>
+      </div>
+      <div class="presets-actions">
+        <button type="button" class="btn-continue" data-action="apply-preset" disabled>Применить пресет</button>
+        <button type="button" class="btn-continue" data-action="customize-eq" disabled>Настроить точнее</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="eq">
+      <div class="eq-header">
+        <h1>Настрой своё настроение</h1>
+        <p class="subtitle">Двигай ползунки, чтобы точнее передать своё текущее состояние</p>
+      </div>
+
+      <div class="eq-controls">
+        <div class="eq-slider" data-emotion="calm">
+          <div class="eq-slider__head">
+            <span class="eq-slider__label">Calm</span>
+            <span class="eq-slider__value" data-eq-value="calm">50</span>
+          </div>
+          <div class="eq-slider__track">
+            <div class="eq-slider__fill" data-eq-fill="calm"></div>
+            <input type="range" min="0" max="100" value="50" class="eq-slider__input" data-eq-input="calm" aria-label="Calm" />
+          </div>
+        </div>
+
+        <div class="eq-slider" data-emotion="energy">
+          <div class="eq-slider__head">
+            <span class="eq-slider__label">Energy</span>
+            <span class="eq-slider__value" data-eq-value="energy">50</span>
+          </div>
+          <div class="eq-slider__track">
+            <div class="eq-slider__fill" data-eq-fill="energy"></div>
+            <input type="range" min="0" max="100" value="50" class="eq-slider__input" data-eq-input="energy" aria-label="Energy" />
+          </div>
+        </div>
+
+        <div class="eq-slider" data-emotion="romance">
+          <div class="eq-slider__head">
+            <span class="eq-slider__label">Romance</span>
+            <span class="eq-slider__value" data-eq-value="romance">50</span>
+          </div>
+          <div class="eq-slider__track">
+            <div class="eq-slider__fill" data-eq-fill="romance"></div>
+            <input type="range" min="0" max="100" value="50" class="eq-slider__input" data-eq-input="romance" aria-label="Romance" />
+          </div>
+        </div>
+
+        <div class="eq-slider" data-emotion="tension">
+          <div class="eq-slider__head">
+            <span class="eq-slider__label">Tension</span>
+            <span class="eq-slider__value" data-eq-value="tension">50</span>
+          </div>
+          <div class="eq-slider__track">
+            <div class="eq-slider__fill" data-eq-fill="tension"></div>
+            <input type="range" min="0" max="100" value="50" class="eq-slider__input" data-eq-input="tension" aria-label="Tension" />
+          </div>
+        </div>
+
+        <div class="eq-slider" data-emotion="focus">
+          <div class="eq-slider__head">
+            <span class="eq-slider__label">Focus</span>
+            <span class="eq-slider__value" data-eq-value="focus">50</span>
+          </div>
+          <div class="eq-slider__track">
+            <div class="eq-slider__fill" data-eq-fill="focus"></div>
+            <input type="range" min="0" max="100" value="50" class="eq-slider__input" data-eq-input="focus" aria-label="Focus" />
+          </div>
+        </div>
+      </div>
+
+      <div class="eq-summary">
+        <span class="eq-summary__label">Доминирующее состояние</span>
+        <span class="eq-summary__value" data-eq-summary>Neutral</span>
+      </div>
+
+      <button type="button" class="btn-continue" data-action="show-results" disabled>Показать результат</button>
+    </section>
+
+    <section class="screen" data-screen="results">
+      <div class="results-header">
+        <h1>Подборка для твоего состояния</h1>
+        <p class="subtitle" data-results-subtitle>&mdash;</p>
+      </div>
+      <div class="results-grid" data-results-grid></div>
+    </section>
+
+    <section class="screen" data-screen="card">
+      <div class="movie-detail" data-movie-detail>
+        <div class="movie-detail__hero">
+          <div class="movie-detail__backdrop" data-movie-backdrop></div>
+          <span class="movie-detail__poster-mark" data-movie-poster-mark>&mdash;</span>
+          <div class="movie-detail__hero-content">
+            <div class="movie-detail__tags" data-movie-tags></div>
+            <h1 class="movie-detail__title" data-movie-title>&mdash;</h1>
+            <p class="movie-detail__meta" data-movie-meta>&mdash;</p>
+          </div>
+        </div>
+
+        <div class="movie-detail__panel">
+          <p class="movie-detail__synopsis" data-movie-synopsis>&mdash;</p>
+
+          <div class="movie-detail__reasoning">
+            <h2>Почему этот фильм подходит тебе сейчас</h2>
+            <p data-movie-reasoning>&mdash;</p>
+          </div>
+
+          <div class="movie-detail__actions">
+            <button type="button" class="btn-primary" data-action="watch">Смотреть</button>
+            <button type="button" class="btn-secondary" data-action="back-to-results">Назад к рекомендациям</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where php *)",
+      "Bash(where ruby *)",
+      "Bash(where deno *)",
+      "Bash(where bun *)",
+      "Bash(test -f \"C:\\\\\\\\Users\\\\\\\\27C6~1\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users--------Desktop-Emotional-EQ-site\\\\\\\\3b93e6ce-f401-4226-888a-a7f9f8a752af\\\\\\\\scratchpad\\\\\\\\static-server.ps1\")",
+      "Bash(rm -f \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/launch.json\")",
+      "Bash(rmdir \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude\")",
+      "Bash(mkdir -p assets/fonts assets/icons assets/images)",
+      "Bash(rmdir src/assets/fonts src/assets/icons src/assets/images src/assets src/data src/scripts src/styles src)",
+      "WebSearch",
+      "Bash(rm -f \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/launch.json\" \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/preview-server.ps1\" && ls -la \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/\")",
+      "Bash(rm -f \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/launch.json\"; ls \"/c/Users/Руслан/Desktop/Emotional-EQ-site/.claude/\")"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+/* base.css
+   Global reset and screen visibility rules.
+   No component styling here — see components.css for that (future iteration). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.06), transparent 60%);
+  background-repeat: no-repeat;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+}
+
+#app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Screen system: only the active screen is rendered.
+   Entering a screen fades/slides in (400-600ms tier) so navigation never
+   feels like an abrupt cut; the shared duration lives in components.css. */
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: var(--space-lg);
+}
+
+.screen.active {
+  display: block;
+  animation: screen-fade-in var(--transition-screen, 500ms cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+
+@keyframes screen-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
