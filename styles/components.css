@@ -104,6 +104,25 @@
   padding: var(--space-lg);
 }
 
+/* Grid items default to min-width:auto, which keeps a track from
+   shrinking below its content's natural minimum (e.g. the widest word
+   in the headline) — that's what was forcing this grid wider than the
+   viewport at narrow widths despite the content nominally "wrapping". */
+.landing__grid > * {
+  min-width: 0;
+}
+
+/* .screen already provides edge padding; .landing__grid's own padding is
+   only meaningful once the two-column layout exists (>=768px, see below).
+   Below that it just doubles up the inset and starves the single mobile
+   column of width for no visual reason, so drop it there specifically —
+   desktop spacing is untouched. */
+@media (max-width: 480px) {
+  .landing__grid {
+    padding: 0;
+  }
+}
+
 .landing__content {
   position: relative;
   z-index: 1;
@@ -113,7 +132,10 @@
 
 .landing__headline {
   margin: 0 0 var(--space-md);
-  font-size: calc(var(--font-size-h1) * 1.6);
+  /* Fluid between a mobile-safe floor and the original desktop value
+     (var(--font-size-h1) * 1.6 = 3.2rem) — at 3.2rem, a long unbroken
+     word like "настроение" overflows a narrow single-column layout. */
+  font-size: clamp(2.2rem, 1.5rem + 3.5vw, 3.2rem);
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
@@ -340,6 +362,17 @@
   gap: var(--space-md);
   max-width: 960px;
   margin: 0 auto;
+}
+
+/* Fixed 4 equal columns don't shrink below their content's min-content
+   width (CSS Grid's default min-width:auto on items), so at narrow
+   viewports the grid overflows instead of collapsing. Desktop is
+   untouched; this only kicks in where the 4-column layout actually
+   breaks (audited: overflows 320-430px, clears at 480px). */
+@media (max-width: 480px) {
+  .emotion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .presets-actions,

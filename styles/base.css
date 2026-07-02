@@ -130,3 +130,16 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+
+/* Safety net for large headline-scale text: at narrow viewports a single
+   long word can be wider than its column (found on .landing__headline and
+   .movie-detail__title, both inside overflow:hidden ancestors that were
+   silently clipping the overflow instead of it being visible/scrollable).
+   No-op for every heading that already fits — only engages when content
+   genuinely can't. */
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
